@@ -24,7 +24,7 @@ public abstract class RespRawParser {
 
     /**
      * 子类实现这个方法来解析具体的接口返回数据
-     * 判断接口是否调用成功（赋值到{@link # success}属性），并且获取到业务数据（赋值到{@link #data 属性）
+     * 判断接口是否调用成功（赋值到{@link #success}属性），并且获取到业务数据（赋值到{@link #data 属性）
      * 如果判断结果是调用失败，还需要为{@link #failMsg } 赋值
      */
     public abstract void performParse() throws Exception;
