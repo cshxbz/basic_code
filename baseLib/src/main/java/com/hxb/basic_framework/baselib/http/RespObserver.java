@@ -3,14 +3,9 @@ package com.hxb.basic_framework.baselib.http;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
-
-import com.google.gson.JsonParseException;
 import com.hxb.basic_framework.baselib.exception.ApiResultException;
 import com.hxb.basic_framework.baselib.http.parser.CommonRespJsonRawParser;
 import com.hxb.basic_framework.baselib.http.parser.RespRawParser;
-
-import org.json.JSONException;
-
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -74,8 +69,9 @@ public abstract class RespObserver implements Observer<String> {
 
             onFail(e.getMessage());
 
-        }else if(e instanceof JSONException ||
-                 e instanceof JsonParseException){//数据解析异常
+        }else if(e instanceof org.json.JSONException ||
+                 e instanceof com.google.gson.JsonParseException ||
+                 e instanceof android.net.ParseException){//数据解析异常
 
             onFail("数据解析异常");
 

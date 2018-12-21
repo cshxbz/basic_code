@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
                 .flatMap(new RespFunction() {
                     @Override
                     public Observable<String> onSuccess(String data) {
-
                         L.i(data);
 
                         return SimulateReqCreator.getReqB();
@@ -40,9 +39,16 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public Observable<String> onSuccess(String data) {
 
-                        L.i(data);
-
                         return SimulateReqCreator.getReqC();
+                    }
+                })
+
+                .flatMap(new RespFunction() {
+                    @Override
+                    public Observable<String> onSuccess(String data) {
+
+                        return null;
+
                     }
                 })
 
@@ -52,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
                         L.i(data);
                     }
                 });
+    }
 
+
+    private Observable<?> getOtherObserver(){
+        Observable<Integer> ob = Observable.create(e -> {
+            //此处进行本地的异步任务
+        });
+
+        return ob;
     }
 }
