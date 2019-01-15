@@ -28,13 +28,13 @@ task clean(type: Delete) {
 //统一管理依赖库版本号
 ext{
     // Sdk and tools
-    minSdkVersion = 14
+    minSdkVersion = 19
     targetSdkVersion = 27
     compileSdkVersion = 27
 
     // android support
     supportLibraryVersion = '27.1.1'
-    constraintLayoutVersion='1.1.2'
+    constraintLayoutVersion='1.1.3'
 
     //android test
     junitVersion = '4.12'
@@ -43,7 +43,7 @@ ext{
 
 
     //okHttp retrofit
-    retrofitVersion = '2.2.0'
+    retrofitVersion = '2.5.0'
     okhttploggingVersion = '3.4.1'
     okhttpVersion = '3.4.1'
 

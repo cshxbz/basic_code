@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hxb.basic_framework.baselib.adapter.BaseRvAdapter;
+import com.hxb.basic_framework.baselib.utils.L;
 import com.hxb.basicframework.R;
-import com.hxb.basicframework.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.hxb.basicframework.utils;
+package com.hxb.basic_framework.baselib.utils;
 
 import android.util.Log;
 

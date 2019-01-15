@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.hxb.basicframework">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,7 +16,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
 
-        <activity android:name=".test.RvTestActivity"
+        <activity android:name=".ui.activity.MainActivity"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
