@@ -4,18 +4,22 @@ package com.hxb.basicframework.ui.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.hxb.basic_framework.baselib.http.CommonResp;
+import com.hxb.basic_framework.baselib.http.RespFunction;
 import com.hxb.basic_framework.baselib.http.RespObserver;
-import com.hxb.basic_framework.baselib.http.RetrofitCreateHelper;
 import com.hxb.basic_framework.baselib.utils.L;
 import com.hxb.basicframework.R;
 import com.hxb.basicframework.api.TestApi;
+import com.hxb.basicframework.entity.resp.DataA;
+import com.hxb.basicframework.entity.resp.DataB;
+import com.hxb.basicframework.http.ApiCreator;
 
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final String BASE_URL = "https://www.easy-mock.com/mock/5c273d1cd746c431566468a0/android_mock_data/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +31,33 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initReq() {
-        RetrofitCreateHelper.createApi(TestApi.class, BASE_URL)
+        ApiCreator.createApi(TestApi.class)
+
                 .justTest(new TestParams("aaa","bbb","ccc"))
+
+
+                .flatMap(new RespFunction<DataA, DataB>() {
+                    @Override
+                    public Observable<CommonResp<DataB>> onSuccess(CommonResp<DataA> resp) {
+
+                        L.i(resp.toString());
+
+                        return ApiCreator.createApi(TestApi.class).justTest2();
+                    }
+                })
+
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new RespObserver(this) {
-                    @Override
-                    public void onSuccess(String data) {
-                        L.i("data >> "+data);
 
+                .subscribe(new RespObserver<DataB>() {
+                    @Override
+                    public void onSuccess(CommonResp<DataB> resp) {
+                        L.i(resp.toString());
                     }
                 });
 
     }
+
 
 
     public static class TestParams{

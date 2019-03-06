@@ -17,31 +17,47 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  */
 public class RetrofitCreateHelper {
     private static final int TIMEOUT_READ = 20;
+    private static final int TIMEOUT_WRITE = 20;
     private static final int TIMEOUT_CONNECTION = 10;
 
-    //logger
-    private static final HttpLoggingInterceptor.Logger httpLogger = new HttpLoggingInterceptor.Logger() {
-        @Override
-        public void log(String message) {
-            //打印网络请求响应日志
-            L.i(message);
-        }
-    };
+    private static OkHttpClient okHttpClient;
 
-    //打印日志的拦截器
-    private static final HttpLoggingInterceptor loggingIntercept = new HttpLoggingInterceptor(httpLogger)
-            .setLevel(HttpLoggingInterceptor.Level.BODY);
+    static {
+        initOkHttpClient();
+    }
 
-    private static OkHttpClient okHttpClient = new OkHttpClient.Builder()
-            //打印日志
-            .addInterceptor(loggingIntercept)
-            //time out
-            .connectTimeout(TIMEOUT_CONNECTION, TimeUnit.SECONDS)
-            .readTimeout(TIMEOUT_READ, TimeUnit.SECONDS)
-            .writeTimeout(TIMEOUT_READ, TimeUnit.SECONDS)
-            //失败重连
-            .retryOnConnectionFailure(true)
-            .build();
+    /**
+     * 初始化okHttp
+     */
+    private static void initOkHttpClient(){
+        okHttpClient = new OkHttpClient.Builder()
+                //打印日志的拦截器
+                .addInterceptor(buildLoggingInterceptor())
+                //time out
+                .connectTimeout(TIMEOUT_CONNECTION, TimeUnit.SECONDS)
+                .readTimeout(TIMEOUT_READ, TimeUnit.SECONDS)
+                .writeTimeout(TIMEOUT_WRITE, TimeUnit.SECONDS)
+                //失败重连
+                .retryOnConnectionFailure(true)
+                .build();
+    }
+
+    /**
+     * 创建打印日志的拦截器
+     */
+    private static HttpLoggingInterceptor buildLoggingInterceptor(){
+        HttpLoggingInterceptor.Logger httpLogger = new HttpLoggingInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                //打印网络请求响应数据日志
+                L.i(message);
+            }
+        };
+
+        return new HttpLoggingInterceptor(httpLogger)
+                .setLevel(HttpLoggingInterceptor.Level.BODY);
+    }
+
 
     public static <T> T createApi(Class<T> clazz, String url) {
         Retrofit retrofit = new Retrofit.Builder()
