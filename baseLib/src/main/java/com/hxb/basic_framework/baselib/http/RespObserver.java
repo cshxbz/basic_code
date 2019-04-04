@@ -1,7 +1,5 @@
 package com.hxb.basic_framework.baselib.http;
 
-import android.util.Log;
-
 import com.hxb.basic_framework.baselib.exception.ApiResultException;
 import com.hxb.basic_framework.baselib.utils.L;
 
@@ -19,12 +17,12 @@ public abstract class RespObserver<T> implements Observer<CommonResp<T>> {
     /**
      * 请求成功回调此方法
      */
-    public abstract void onSuccess(CommonResp<T> resp);
+    protected abstract void onSuccess(CommonResp<T> resp);
 
     /**
      * 请求失败，回调此方法
      */
-    public void onFail(String msg){
+    protected void onFail(String msg){
 
     }
 
@@ -66,6 +64,6 @@ public abstract class RespObserver<T> implements Observer<CommonResp<T>> {
 
     @Override
     public void onComplete() {
-        Log.i("TTT", "req complete");
+        L.i("req complete");
     }
 }
