@@ -20,14 +20,14 @@ public abstract class RespFunction<T, R> implements Function<CommonResp<T>, Obse
 
 
     @Override
-    public Observable<CommonResp<R>> apply(CommonResp<T> resp) throws ApiResultException {
+    public Observable<CommonResp<R>> apply(CommonResp<T> resp) throws Exception {
         int status = resp.getStatus();
         if(status==1){
             Observable<CommonResp<R>> nextObservable = onSuccess(resp);
             if(nextObservable!=null){
                 return nextObservable;
             }else {
-                throw new ApiResultException("next observable is null");
+                throw new Exception("next observable is null");
             }
         }else{
             throw new ApiResultException(resp.getMessage());

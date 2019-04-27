@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.hxb.basic_framework.baselib.http.CommonResp;
+import com.hxb.basic_framework.baselib.http.RespFailSpec;
 import com.hxb.basic_framework.baselib.http.RespFunction;
 import com.hxb.basic_framework.baselib.http.RespObserver;
-import com.hxb.basic_framework.baselib.utils.L;
+import com.hxb.basic_framework.baselib.utils.Logger;
 import com.hxb.basicframework.R;
 import com.hxb.basicframework.api.TestApi;
 import com.hxb.basicframework.entity.resp.DataA;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public Observable<CommonResp<DataB>> onSuccess(CommonResp<DataA> resp) {
 
-                        L.i(resp.toString());
+                        Logger.i(resp.toString());
 
                         return ApiCreator.createApi(TestApi.class).justTest2();
                     }
@@ -52,8 +53,20 @@ public class MainActivity extends AppCompatActivity {
                 .subscribe(new RespObserver<DataB>() {
                     @Override
                     public void onSuccess(CommonResp<DataB> resp) {
-                        L.i(resp.toString());
+                        Logger.i(resp.toString());
                     }
+
+
+                    @Override
+                    protected void onFail(RespFailSpec failSpec) {
+
+                    }
+
+                    @Override
+                    protected void onFinish() {
+
+                    }
+
                 });
 
     }

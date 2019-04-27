@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hxb.basic_framework.baselib.adapter.BaseRvAdapter;
-import com.hxb.basic_framework.baselib.utils.L;
+import com.hxb.basic_framework.baselib.utils.Logger;
 import com.hxb.basicframework.R;
 
 import java.util.ArrayList;
@@ -55,13 +55,13 @@ public class RvTestActivity extends AppCompatActivity {
 
             switch (v.getId()) {
                 case R.id.btn_1:
-                    L.i("position: " + position + "--item: " + item + "--btn_1");
+                    Logger.i("position: " + position + "--item: " + item + "--btn_1");
                     break;
                 case R.id.btn_2:
-                    L.i("position: " + position + "--item: " + item + "--btn_2");
+                    Logger.i("position: " + position + "--item: " + item + "--btn_2");
                     break;
                 case R.id.item_total:
-                    L.i("position: " + position + "--item: " + item + "--item_total");
+                    Logger.i("position: " + position + "--item: " + item + "--item_total");
                     break;
             }
         });
