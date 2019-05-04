@@ -30,9 +30,7 @@ public class RetrofitCreateHelper {
      * 初始化okHttp
      */
     private static void initOkHttpClient() {
-        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-
-        builder
+        okHttpClient=new OkHttpClient.Builder()
                 //打印日志的拦截器
                 .addInterceptor(buildLoggingInterceptor())
                 //time out
@@ -40,21 +38,10 @@ public class RetrofitCreateHelper {
                 .readTimeout(TIMEOUT_READ, TimeUnit.SECONDS)
                 .writeTimeout(TIMEOUT_WRITE, TimeUnit.SECONDS)
                 //失败重连
-                .retryOnConnectionFailure(true);
-
-        okHttpClient = customBuildOkHttpClient(builder).build();
+                .retryOnConnectionFailure(true)
+                .build();
     }
 
-
-    /**
-     * 子类可重写此方法对okHttpClient进行自定义配置
-     *
-     * @param builder
-     * @return
-     */
-    protected static OkHttpClient.Builder customBuildOkHttpClient(OkHttpClient.Builder builder) {
-        return builder;
-    }
 
     /**
      * 创建打印日志的拦截器
