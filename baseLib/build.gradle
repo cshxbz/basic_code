@@ -36,6 +36,7 @@ dependencies {
     //rxJava
     api "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
     api "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+    api "com.github.tbruyelle:rxpermissions:$rootProject.rxpermissionVersion"
 
     //gson
     api "com.google.code.gson:gson:$rootProject.gsonVersion"
