@@ -24,7 +24,7 @@ public class RetrofitApiCreator {
 
     private OkHttpClient mOkHttpClient;
 
-    protected RetrofitApiCreator() {
+    private RetrofitApiCreator() {
         initOkHttpClient();
     }
 
