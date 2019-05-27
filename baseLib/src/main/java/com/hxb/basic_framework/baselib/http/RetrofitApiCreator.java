@@ -15,22 +15,37 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 /**
  * @author hxb
  */
-public class RetrofitCreateHelper {
+public class RetrofitApiCreator {
     private static final int TIMEOUT_READ = 20;
     private static final int TIMEOUT_WRITE = 20;
     private static final int TIMEOUT_CONNECTION = 10;
 
-    private static OkHttpClient okHttpClient;
+    private static RetrofitApiCreator sInstance;
 
-    static {
+    private OkHttpClient mOkHttpClient;
+
+    protected RetrofitApiCreator() {
         initOkHttpClient();
     }
 
+    public static RetrofitApiCreator getInstance() {
+        synchronized (RetrofitApiCreator.class) {
+            if (sInstance == null) {
+                sInstance = new RetrofitApiCreator();
+            }
+            return sInstance;
+        }
+    }
+
+    public OkHttpClient getOkHttpClient() {
+        return mOkHttpClient;
+    }
+
     /**
-     * 初始化okHttp
+     * 初始化okHttpClient
      */
-    private static void initOkHttpClient() {
-        okHttpClient=new OkHttpClient.Builder()
+    private void initOkHttpClient() {
+        mOkHttpClient = new OkHttpClient.Builder()
                 //打印日志的拦截器
                 .addInterceptor(buildLoggingInterceptor())
                 //time out
@@ -44,9 +59,20 @@ public class RetrofitCreateHelper {
 
 
     /**
+     * 外部可调用此方法对okHttpClient进行自定义配置
+     * @param builder
+     */
+    public void customBuildOkHttpClient(OkHttpClient.Builder builder){
+        if(builder!=null){
+            mOkHttpClient = builder.build();
+        }
+    }
+
+
+    /**
      * 创建打印日志的拦截器
      */
-    private static HttpLoggingInterceptor buildLoggingInterceptor() {
+    private HttpLoggingInterceptor buildLoggingInterceptor() {
         HttpLoggingInterceptor.Logger httpLogger = new HttpLoggingInterceptor.Logger() {
             @Override
             public void log(String message) {
@@ -59,11 +85,10 @@ public class RetrofitCreateHelper {
                 .setLevel(HttpLoggingInterceptor.Level.BODY);
     }
 
-
-    public static <T> T createApi(Class<T> clazz, String url) {
+    public <T> T createApi(Class<T> clazz, String url) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
-                .client(okHttpClient)
+                .client(mOkHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(GsonUtil.get()))
