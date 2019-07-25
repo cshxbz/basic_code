@@ -64,6 +64,9 @@ ext{
     butterknifeVersion = '8.8.1'
     loggerVersion = '1.15'
 
-    smartRefreshLayoutVersion="1.1.0-alpha-14"
+    smartRefreshLayoutVersion = "1.1.0-alpha-14"
+
+    loadingBarVersion = "2.0.1"
+
 
 }

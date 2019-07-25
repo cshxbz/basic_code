@@ -53,6 +53,9 @@ dependencies {
     api "com.scwang.smartrefresh:SmartRefreshLayout:$rootProject.smartRefreshLayoutVersion"
     api "com.scwang.smartrefresh:SmartRefreshHeader:$rootProject.smartRefreshLayoutVersion"
 
+    //loadingBar
+    api "com.dyhdyh.loadingbar2:loadingbar:$rootProject.loadingBarVersion"
+
 
 
 }
