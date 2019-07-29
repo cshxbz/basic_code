@@ -23,7 +23,7 @@ public abstract class RespObserver<T> implements Observer<CommonResp<T>> {
     /**
      * 请求结束回调此方法，不管是请求失还是成功都回回调此方法
      */
-    protected abstract void onFinish();
+    protected abstract void onFinish(boolean isSuccess);
 
     /**
      * 请求失败，回调此方法
@@ -40,12 +40,13 @@ public abstract class RespObserver<T> implements Observer<CommonResp<T>> {
     @Override
     public void onNext(CommonResp<T> resp) {
         int status = resp.getStatus();
-        if(status==1){
+        boolean isSuccess = status == 1;
+        if(isSuccess){
             onSuccess(resp);
         }else{
             onFail(new RespFailSpec(RespFailType.API_RESULT,resp.getMessage()));
         }
-        onFinish();
+        onFinish(isSuccess);
     }
 
     @Override
@@ -64,7 +65,7 @@ public abstract class RespObserver<T> implements Observer<CommonResp<T>> {
             onFail(new RespFailSpec(RespFailType.UNKNOWN,"未知异常"));
         }
         e.printStackTrace();
-        onFinish();
+        onFinish(false);
     }
 
     @Override

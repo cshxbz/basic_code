@@ -2,6 +2,8 @@ package com.hxb.basic_framework.baselib.loadingbar;
 
 import android.content.Context;
 
+import com.hxb.basic_framework.baselib.R;
+
 public class CommonLoadingViewHolder extends AbsLoadingViewHolder {
 
     public CommonLoadingViewHolder(Context context) {
@@ -10,21 +12,21 @@ public class CommonLoadingViewHolder extends AbsLoadingViewHolder {
 
     @Override
     protected int getRootViewLayoutId() {
-        return 0;
+        return R.layout.common_loading_view;
     }
 
     @Override
     protected int getLoadingTipViewId() {
-        return 0;
+        return R.id.pb_tip;
     }
 
     @Override
     protected int getLoadFailViewId() {
-        return 0;
+        return R.id.ll_load_fail;
     }
 
     @Override
     protected int getRetryViewId() {
-        return 0;
+        return R.id.tv_retry;
     }
 }

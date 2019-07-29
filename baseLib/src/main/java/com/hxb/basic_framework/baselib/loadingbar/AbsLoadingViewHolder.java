@@ -25,6 +25,10 @@ public abstract class AbsLoadingViewHolder {
         initViews();
     }
 
+    public View getRootView() {
+        return rootView;
+    }
+
     public void showLoadingTipView() {
         loadingTipView.setVisibility(View.VISIBLE);
         loadFailView.setVisibility(View.GONE);
