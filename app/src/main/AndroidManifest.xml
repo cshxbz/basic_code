@@ -18,7 +18,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
 
-        <activity android:name=".test.LoadingBarTestActivity"
+        <activity android:name=".ui.activity.MainActivity"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
