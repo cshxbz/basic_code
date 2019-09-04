@@ -1,13 +1,14 @@
 //这个gradle文件集中管理一些配置信息
 
 ext {
-
+    //sdk版本
     sdk_version = [
             "minSdk"    : 19,
             "targetSdk" : 27,
             "compileSdk": 27,
     ]
 
+    //依赖库的版本
     dependencies_version = [
 
             // android support
@@ -44,9 +45,10 @@ ext {
 
     ]
 
-
+    //接口url
     api_base_url = [
-
+            "dev": "\"http://www.baidu.com\"",
+            "prd": "\"https://www.jianshu.com\""
 
     ]
 
