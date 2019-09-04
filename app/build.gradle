@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion rootProject.ext.sdk_version["compileSdk"]
     defaultConfig {
         applicationId "com.hxb.basicframework"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion rootProject.ext.sdk_version["minSdk"]
+        targetSdkVersion rootProject.ext.sdk_version["targetSdk"]
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -25,14 +25,9 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    //android test
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    testImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
-    testImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
-
     //butterKnife
-    api "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
+    api "com.jakewharton:butterknife:${rootProject.ext.dependencies_version["butterknife"]}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.dependencies_version["butterknife"]}"
 
     //项目基础框架
     implementation project(':baseLib')
