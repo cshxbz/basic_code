@@ -3,11 +3,12 @@ package com.hxb.basicframework.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.hxb.basic_framework.baselib.http.CommonResp;
-import com.hxb.basic_framework.baselib.http.RespFailSpec;
+import com.hxb.basic_framework.baselib.http.LoadingDialogRespObserver;
+import com.hxb.basic_framework.baselib.http.LoadingViewRespObserver;
 import com.hxb.basic_framework.baselib.http.RespFunction;
-import com.hxb.basic_framework.baselib.http.RespObserver;
 import com.hxb.basic_framework.baselib.utils.Logger;
 import com.hxb.basicframework.R;
 import com.hxb.basicframework.api.TestApi;
@@ -15,17 +16,22 @@ import com.hxb.basicframework.entity.resp.DataA;
 import com.hxb.basicframework.entity.resp.DataB;
 import com.hxb.basicframework.http.ApiCreator;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+public class ApiReqTestActivity extends AppCompatActivity {
 
+    @BindView(R.id.fl)
+    View loadingViewParent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_api_req_test);
+        ButterKnife.bind(this);
 
         initReq();
     }
@@ -50,27 +56,41 @@ public class MainActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 
-                .subscribe(new RespObserver<DataB>() {
-                    @Override
-                    public void onSuccess(CommonResp<DataB> resp) {
-                        Logger.i(resp.toString());
-                    }
-
+                .subscribe(new LoadingViewRespObserver<DataB>(this, loadingViewParent) {
 
                     @Override
-                    protected void onFail(RespFailSpec failSpec) {
+                    protected void onSuccess(CommonResp<DataB> resp) {
 
                     }
 
                     @Override
-                    protected void onFinish() {
+                    protected void onRetryClick() {
+                        initReq();
+                    }
+                });
+    }
+
+
+    public void onCommitClick(View v){
+        commitReq();
+    }
+
+
+    private void commitReq() {
+        ApiCreator.createApi(TestApi.class)
+                .justTest(new TestParams("aaa","bbb","ccc"))
+
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+
+                .subscribe(new LoadingDialogRespObserver<DataA>(this){
+                    @Override
+                    protected void onSuccess(CommonResp<DataA> resp) {
 
                     }
-
                 });
 
     }
-
 
 
     public static class TestParams{

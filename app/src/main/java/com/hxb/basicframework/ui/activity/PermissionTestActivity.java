@@ -1,4 +1,4 @@
-package com.hxb.basicframework.test;
+package com.hxb.basicframework.ui.activity;
 
 import android.Manifest;
 import android.os.Bundle;

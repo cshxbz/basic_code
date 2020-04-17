@@ -2,13 +2,11 @@ apply plugin: 'com.android.library'
 
 
 android {
-    compileSdkVersion 27
-
-
+    compileSdkVersion rootProject.ext.sdk_version["compileSdk"]
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 27
+        minSdkVersion rootProject.ext.sdk_version["minSdk"]
+        targetSdkVersion rootProject.ext.sdk_version["targetSdk"]
         versionCode 1
         versionName "1.0"
 
@@ -29,32 +27,34 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //android support
-    api "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    api "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
-    api "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
+    api "com.android.support:appcompat-v7:${rootProject.ext.dependencies_version["supportLibrary"]}"
+    api "com.android.support:recyclerview-v7:${rootProject.ext.dependencies_version["supportLibrary"]}"
+    api "com.android.support.constraint:constraint-layout:${rootProject.ext.dependencies_version["constraintLayout"]}"
 
-    //rxJava
-    api "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
-    api "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
-    api "com.github.tbruyelle:rxpermissions:$rootProject.rxpermissionVersion"
+    //rx
+    api "io.reactivex.rxjava2:rxjava:${rootProject.ext.dependencies_version["rxjava"]}"
+    api "io.reactivex.rxjava2:rxandroid:${rootProject.ext.dependencies_version["rxandroid"]}"
+    api "com.github.tbruyelle:rxpermissions:${rootProject.ext.dependencies_version["rxpermission"]}"
 
     //gson
-    api "com.google.code.gson:gson:$rootProject.gsonVersion"
+    api "com.google.code.gson:gson:${rootProject.ext.dependencies_version["gson"]}"
 
     //retrofit
-    api "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
-    api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
-    api "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
-    api "com.squareup.retrofit2:converter-scalars:$rootProject.retrofitVersion"
-    api "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
-    api "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttploggingVersion"
+    api "com.squareup.retrofit2:retrofit:${rootProject.ext.dependencies_version["retrofit"]}"
+    api "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.dependencies_version["retrofit"]}"
+    api "com.squareup.retrofit2:converter-gson:${rootProject.ext.dependencies_version["retrofit"]}"
+    api "com.squareup.retrofit2:converter-scalars:${rootProject.ext.dependencies_version["retrofit"]}"
+
+    //okHttp
+    api "com.squareup.okhttp3:okhttp:${rootProject.ext.dependencies_version["okhttp"]}"
+    api "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.dependencies_version["okhttp"]}"
 
     //smartRefreshLayout
-    api "com.scwang.smartrefresh:SmartRefreshLayout:$rootProject.smartRefreshLayoutVersion"
-    api "com.scwang.smartrefresh:SmartRefreshHeader:$rootProject.smartRefreshLayoutVersion"
+    api "com.scwang.smartrefresh:SmartRefreshLayout:${rootProject.ext.dependencies_version["smartRefreshLayout"]}"
+    api "com.scwang.smartrefresh:SmartRefreshHeader:${rootProject.ext.dependencies_version["smartRefreshLayout"]}"
 
     //loadingBar
-    api "com.dyhdyh.loadingbar2:loadingbar:$rootProject.loadingBarVersion"
+    api "com.dyhdyh.loadingbar2:loadingbar:${rootProject.ext.dependencies_version["loadingBar"]}"
 
 
 
