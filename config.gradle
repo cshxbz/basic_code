@@ -4,8 +4,8 @@ ext {
     //sdk版本
     sdk_version = [
             "minSdk"    : 19,
-            "targetSdk" : 27,
-            "compileSdk": 27,
+            "targetSdk" : 28,
+            "compileSdk": 28,
     ]
 
     //依赖库的版本
