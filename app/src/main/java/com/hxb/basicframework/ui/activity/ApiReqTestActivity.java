@@ -2,8 +2,9 @@
 package com.hxb.basicframework.ui.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.hxb.basic_framework.baselib.http.CommonResp;
 import com.hxb.basic_framework.baselib.http.LoadingDialogRespObserver;

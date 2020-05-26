@@ -2,7 +2,8 @@ package com.hxb.basic_framework.baselib.permission;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.tbruyelle.rxpermissions2.Permission;
 

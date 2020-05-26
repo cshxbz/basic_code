@@ -2,10 +2,11 @@ package com.hxb.basicframework.ui.activity;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.hxb.basic_framework.baselib.permission.PermissionResultObserver;
 import com.hxb.basicframework.R;

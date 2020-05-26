@@ -2,7 +2,8 @@ package com.hxb.basicframework.global;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.hxb.basicframework.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;

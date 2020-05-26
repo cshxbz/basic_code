@@ -2,7 +2,8 @@ package com.hxb.basic_framework.baselib.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.hxb.basic_framework.baselib.R;
 

@@ -10,7 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -26,15 +26,15 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    //android support
-    api "com.android.support:appcompat-v7:${rootProject.ext.dependencies_version["supportLibrary"]}"
-    api "com.android.support:recyclerview-v7:${rootProject.ext.dependencies_version["supportLibrary"]}"
-    api "com.android.support.constraint:constraint-layout:${rootProject.ext.dependencies_version["constraintLayout"]}"
+    //androidx
+    api rootProject.ext.dependencies.appcompat
+    api rootProject.ext.dependencies.recyclerview
+    api rootProject.ext.dependencies.constraintlayout
 
     //rx
-    api "io.reactivex.rxjava2:rxjava:${rootProject.ext.dependencies_version["rxjava"]}"
-    api "io.reactivex.rxjava2:rxandroid:${rootProject.ext.dependencies_version["rxandroid"]}"
-    api "com.github.tbruyelle:rxpermissions:${rootProject.ext.dependencies_version["rxpermission"]}"
+    api rootProject.ext.dependencies.rxjava2
+    api rootProject.ext.dependencies.rxandroid
+    api rootProject.ext.dependencies.rxpermission
 
     //gson
     api "com.google.code.gson:gson:${rootProject.ext.dependencies_version["gson"]}"
