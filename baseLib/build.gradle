@@ -37,13 +37,13 @@ dependencies {
     api rootProject.ext.dependencies.rxpermission
 
     //gson
-    api "com.google.code.gson:gson:${rootProject.ext.dependencies_version["gson"]}"
+    api rootProject.ext.dependencies.gson
 
     //retrofit
-    api "com.squareup.retrofit2:retrofit:${rootProject.ext.dependencies_version["retrofit"]}"
-    api "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.dependencies_version["retrofit"]}"
-    api "com.squareup.retrofit2:converter-gson:${rootProject.ext.dependencies_version["retrofit"]}"
-    api "com.squareup.retrofit2:converter-scalars:${rootProject.ext.dependencies_version["retrofit"]}"
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies.retrofit_adapter_rxjava2
+    api rootProject.ext.dependencies.retrofit_converter_gson
+    api rootProject.ext.dependencies.retrofit_converter_scalars
 
     //okHttp
     api "com.squareup.okhttp3:okhttp:${rootProject.ext.dependencies_version["okhttp"]}"
@@ -55,6 +55,7 @@ dependencies {
 
     //loadingBar
     api "com.dyhdyh.loadingbar2:loadingbar:${rootProject.ext.dependencies_version["loadingBar"]}"
+
 
 
 
