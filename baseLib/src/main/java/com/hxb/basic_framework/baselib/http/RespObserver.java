@@ -39,14 +39,12 @@ public abstract class RespObserver<T> implements Observer<CommonResp<T>> {
 
     @Override
     public void onNext(CommonResp<T> resp) {
-        int status = resp.getStatus();
-        boolean isSuccess = status == 1;
-        if(isSuccess){
+        if(resp.isSuccess()){
             onSuccess(resp);
         }else{
             onFail(new RespFailSpec(RespFailType.API_RESULT,resp.getMessage()));
         }
-        onFinish(isSuccess);
+        onFinish(resp.isSuccess());
     }
 
     @Override

@@ -21,8 +21,7 @@ public abstract class RespFunction<T, R> implements Function<CommonResp<T>, Obse
 
     @Override
     public Observable<CommonResp<R>> apply(CommonResp<T> resp) throws Exception {
-        int status = resp.getStatus();
-        if(status==1){
+        if(resp.isSuccess()){
             Observable<CommonResp<R>> nextObservable = onSuccess(resp);
             if(nextObservable!=null){
                 return nextObservable;

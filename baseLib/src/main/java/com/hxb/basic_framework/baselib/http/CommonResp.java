@@ -9,6 +9,10 @@ public class CommonResp<T> {
     private String message;
     private  T data;
 
+    public boolean isSuccess() {
+        return status == 1;
+    }
+
     public int getStatus() {
         return status;
     }
