@@ -6,13 +6,11 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.hxb.basic_framework.baselib.http.CommonResp;
-import com.hxb.basic_framework.baselib.http.LoadingDialogRespObserver;
-import com.hxb.basic_framework.baselib.http.LoadingViewRespObserver;
-import com.hxb.basic_framework.baselib.http.RespFunction;
-import com.hxb.basic_framework.baselib.utils.Logger;
+import com.hxb.basic_framework.baselib.http.ApiRespFunction;
+import com.hxb.basic_framework.baselib.http.LoadingDialogApiRespObserver;
 import com.hxb.basicframework.R;
 import com.hxb.basicframework.api.TestApi;
+import com.hxb.basicframework.entity.resp.CommonResp;
 import com.hxb.basicframework.entity.resp.DataA;
 import com.hxb.basicframework.entity.resp.DataB;
 import com.hxb.basicframework.http.ApiCreator;
@@ -41,50 +39,38 @@ public class ApiReqTestActivity extends AppCompatActivity {
     private void initReq() {
         ApiCreator.createApi(TestApi.class)
 
-                .justTest(new TestParams("aaa","bbb","ccc"))
+                .getDataA(new TestParams("aaa", "bbb", "ccc"))
 
-
-                .flatMap(new RespFunction<DataA, DataB>() {
+                .flatMap(new ApiRespFunction<CommonResp<DataA>, Observable<CommonResp<DataB>>>() {
                     @Override
                     public Observable<CommonResp<DataB>> onSuccess(CommonResp<DataA> resp) {
 
-                        Logger.i(resp.toString());
-
-                        return ApiCreator.createApi(TestApi.class).justTest2();
+                        return ApiCreator.createApi(TestApi.class).getDataB();
                     }
                 })
 
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-
-                .subscribe(new LoadingViewRespObserver<DataB>(this, loadingViewParent) {
-
+                .subscribe(new LoadingDialogApiRespObserver<CommonResp<DataB>>(this) {
                     @Override
                     protected void onSuccess(CommonResp<DataB> resp) {
 
-                    }
-
-                    @Override
-                    protected void onRetryClick() {
-                        initReq();
                     }
                 });
     }
 
 
-    public void onCommitClick(View v){
+    public void onCommitClick(View v) {
         commitReq();
     }
 
 
     private void commitReq() {
         ApiCreator.createApi(TestApi.class)
-                .justTest(new TestParams("aaa","bbb","ccc"))
+                .getDataA(new TestParams("aaa", "bbb", "ccc"))
 
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 
-                .subscribe(new LoadingDialogRespObserver<DataA>(this){
+                .subscribe(new LoadingDialogApiRespObserver<CommonResp<DataA>>(this) {
                     @Override
                     protected void onSuccess(CommonResp<DataA> resp) {
 
@@ -94,7 +80,7 @@ public class ApiReqTestActivity extends AppCompatActivity {
     }
 
 
-    public static class TestParams{
+    public static class TestParams {
         String p1;
         String p2;
         String p3;

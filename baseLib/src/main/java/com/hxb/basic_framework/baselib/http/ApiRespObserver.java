@@ -1,6 +1,7 @@
 package com.hxb.basic_framework.baselib.http;
 
 import com.hxb.basic_framework.baselib.exception.ApiResultException;
+import com.hxb.basic_framework.baselib.http.resp.IResp;
 import com.hxb.basic_framework.baselib.utils.Logger;
 
 import io.reactivex.Observer;
@@ -12,12 +13,12 @@ import io.reactivex.disposables.Disposable;
  * 处理服务端接口返回数据的Observer
  * @author hxb
  */
-public abstract class RespObserver<T> implements Observer<CommonResp<T>> {
+public abstract class ApiRespObserver<T extends IResp> implements Observer<T> {
 
     /**
      * 请求成功回调此方法
      */
-    protected abstract void onSuccess(CommonResp<T> resp);
+    protected abstract void onSuccess(T resp);
 
 
     /**
@@ -38,7 +39,7 @@ public abstract class RespObserver<T> implements Observer<CommonResp<T>> {
 
 
     @Override
-    public void onNext(CommonResp<T> resp) {
+    public void onNext(T resp) {
         if(resp.isSuccess()){
             onSuccess(resp);
         }else{

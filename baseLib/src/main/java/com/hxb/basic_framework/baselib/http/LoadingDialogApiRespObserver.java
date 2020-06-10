@@ -3,6 +3,7 @@ package com.hxb.basic_framework.baselib.http;
 import android.content.Context;
 
 import com.dyhdyh.widget.loadingbar2.LoadingBar;
+import com.hxb.basic_framework.baselib.http.resp.IResp;
 
 import io.reactivex.disposables.Disposable;
 
@@ -10,11 +11,11 @@ import io.reactivex.disposables.Disposable;
  *
  * @param <T>
  */
-public abstract class LoadingDialogRespObserver<T> extends RespObserver<T>  {
+public abstract class LoadingDialogApiRespObserver<T extends IResp> extends ApiRespObserver<T> {
 
     private Context context;
 
-    public LoadingDialogRespObserver(Context context) {
+    public LoadingDialogApiRespObserver(Context context) {
         this.context = context;
     }
 

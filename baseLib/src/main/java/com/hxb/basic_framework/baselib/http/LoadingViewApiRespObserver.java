@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.dyhdyh.widget.loadingbar2.LoadingBar;
+import com.hxb.basic_framework.baselib.http.resp.IResp;
 import com.hxb.basic_framework.baselib.loadingbar.AbsLoadingViewHolder;
 import com.hxb.basic_framework.baselib.loadingbar.CommonLoadingViewHolder;
 
@@ -13,7 +14,7 @@ import io.reactivex.disposables.Disposable;
  *
  * @param <T>
  */
-public abstract class LoadingViewRespObserver<T> extends RespObserver<T> {
+public abstract class LoadingViewApiRespObserver<T extends IResp> extends ApiRespObserver<T> {
 
     private AbsLoadingViewHolder loadingViewHolder;
     private View loadingViewParent;
@@ -27,7 +28,7 @@ public abstract class LoadingViewRespObserver<T> extends RespObserver<T> {
         }
     };
 
-    public LoadingViewRespObserver(Context context, View loadingViewParent) {
+    public LoadingViewApiRespObserver(Context context, View loadingViewParent) {
         this.loadingViewParent = loadingViewParent;
         loadingViewHolder = getLoadingViewHolder(context);
         loadingViewHolder.setRetryOnClickListener(retryClickListener);
