@@ -25,14 +25,18 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+
+    viewBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    //butterKnife
-    api "com.jakewharton:butterknife:${rootProject.ext.dependencies_version["butterknife"]}"
-    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.dependencies_version["butterknife"]}"
+
+    annotationProcessor rootProject.ext.dependencies.permissions_dispatcher_processor
 
     testImplementation rootProject.ext.dependencies.junit
     androidTestImplementation rootProject.ext.dependencies.androidx_junit

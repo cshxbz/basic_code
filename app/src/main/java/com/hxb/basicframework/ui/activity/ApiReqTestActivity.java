@@ -8,29 +8,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.hxb.basic_framework.baselib.http.ApiRespFunction;
 import com.hxb.basic_framework.baselib.http.LoadingDialogApiRespObserver;
-import com.hxb.basicframework.R;
 import com.hxb.basicframework.api.TestApi;
+import com.hxb.basicframework.databinding.ActivityApiReqTestBinding;
 import com.hxb.basicframework.entity.resp.CommonResp;
 import com.hxb.basicframework.entity.resp.DataA;
 import com.hxb.basicframework.entity.resp.DataB;
 import com.hxb.basicframework.http.ApiCreator;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class ApiReqTestActivity extends AppCompatActivity {
 
-    @BindView(R.id.fl)
-    View loadingViewParent;
+    private ActivityApiReqTestBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_api_req_test);
-        ButterKnife.bind(this);
+        binding = ActivityApiReqTestBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         initReq();
     }
