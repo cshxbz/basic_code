@@ -24,6 +24,7 @@ public class ViewModelTestActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityViewModelTestBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         viewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory())
                 .get(TestViewModel.class);

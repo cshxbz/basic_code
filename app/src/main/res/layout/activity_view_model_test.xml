@@ -13,6 +13,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:text="btn"
+        android:textColor="#000000"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

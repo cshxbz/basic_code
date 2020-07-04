@@ -87,9 +87,6 @@ ext {
             //loading
             "loadingbar"                      : "com.dyhdyh.loadingbar2:loadingbar:2.0.1",
 
-            //butterknife
-            "butterknife"                     : "com.jakewharton:butterknife:10.2.1"
-
 
 
     ]

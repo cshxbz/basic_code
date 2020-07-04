@@ -204,7 +204,7 @@ public abstract class BaseRvAdapter<T, VH extends RecyclerView.ViewHolder> exten
      */
     public void clear() {
         mData.clear();
-        notifyItemRangeRemoved(0, mData.size());
+        notifyDataSetChanged();
     }
 
     private static class InnerOnClickListener<VH extends RecyclerView.ViewHolder> implements View.OnClickListener {
