@@ -2,11 +2,10 @@ apply plugin: 'com.android.library'
 
 
 android {
-    compileSdkVersion rootProject.ext.sdk_version["compileSdk"]
-
+    compileSdkVersion rootProject.ext.version_config.compileSdk
     defaultConfig {
-        minSdkVersion rootProject.ext.sdk_version["minSdk"]
-        targetSdkVersion rootProject.ext.sdk_version["targetSdk"]
+        minSdkVersion rootProject.ext.version_config.minSdk
+        targetSdkVersion rootProject.ext.version_config.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -31,37 +30,34 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //androidx
-    api rootProject.ext.dependencies.appcompat
-    api rootProject.ext.dependencies.recyclerview
-    api rootProject.ext.dependencies.constraintlayout
+    api "androidx.appcompat:appcompat:${rootProject.ext.version_config.appcompat}"
+    api "androidx.recyclerview:recyclerview:${rootProject.ext.version_config.recyclerview}"
+    api "androidx.constraintlayout:constraintlayout:${rootProject.ext.version_config.constraintLayout}"
 
     //rx
-    api rootProject.ext.dependencies.rxjava2
-    api rootProject.ext.dependencies.rxandroid
-    api rootProject.ext.dependencies.rxpermission
+    api "io.reactivex.rxjava2:rxjava:${rootProject.ext.version_config.rxjava}"
+    api "io.reactivex.rxjava2:rxandroid:${rootProject.ext.version_config.rxandroid}"
 
-    //gsonss
-    api rootProject.ext.dependencies.gson
+    //gson
+    api "com.google.code.gson:gson:${rootProject.ext.version_config.gson}"
 
     //retrofit
-    api rootProject.ext.dependencies.retrofit
-    api rootProject.ext.dependencies.retrofit_adapter_rxjava2
-    api rootProject.ext.dependencies.retrofit_converter_gson
-    api rootProject.ext.dependencies.retrofit_converter_scalars
-    //permission
-    api rootProject.ext.dependencies.permissions_dispatcher
+    api "com.squareup.retrofit2:retrofit:${rootProject.ext.version_config.retrofit}"
+    api "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.version_config.retrofit}"
+    api "com.squareup.retrofit2:converter-gson:${rootProject.ext.version_config.retrofit}"
+    api "com.squareup.retrofit2:converter-scalars:${rootProject.ext.version_config.retrofit}"
 
     //okHttp
-    api rootProject.ext.dependencies.okhttp
-    api rootProject.ext.dependencies.logging_interceptor
+    api "com.squareup.okhttp3:okhttp:${rootProject.ext.version_config.okhttp}"
+    api "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.version_config.okhttplogging}"
 
     //smartRefreshLayout
-    api rootProject.ext.dependencies.smart_refresh_kernel
-    api rootProject.ext.dependencies.smart_refresh_header_classics
-    api rootProject.ext.dependencies.smart_refresh_footer_classics
+    api "com.scwang.smart:refresh-layout-kernel:${rootProject.ext.version_config.smartRefreshLayout}"
+    api "com.scwang.smart:refresh-header-classics:${rootProject.ext.version_config.smartRefreshLayout}"
+    api "com.scwang.smart:refresh-footer-classics:${rootProject.ext.version_config.smartRefreshLayout}"
 
     //loadingBar
-    api rootProject.ext.dependencies.loadingbar
+    api "com.dyhdyh.loadingbar2:loadingbar:${rootProject.ext.version_config.loadingBar}"
 
 
 

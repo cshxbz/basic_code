@@ -10,7 +10,7 @@ import com.hxb.basic_framework.baselib.BuildConfig;
  */
 public class Logger {
 
-    private static final String GLOBAL_LOG_TAG="GLOBAL_LOG_TAG";
+    private static final String GLOBAL_LOG_TAG = "GLOBAL_LOG_TAG";
 
     public static void i(String msg){
         if(BuildConfig.DEBUG){
