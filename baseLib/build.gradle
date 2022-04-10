@@ -51,11 +51,6 @@ dependencies {
     api "com.squareup.okhttp3:okhttp:${rootProject.ext.version_config.okhttp}"
     api "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.version_config.okhttplogging}"
 
-    //smartRefreshLayout
-    api "com.scwang.smart:refresh-layout-kernel:${rootProject.ext.version_config.smartRefreshLayout}"
-    api "com.scwang.smart:refresh-header-classics:${rootProject.ext.version_config.smartRefreshLayout}"
-    api "com.scwang.smart:refresh-footer-classics:${rootProject.ext.version_config.smartRefreshLayout}"
-
     //loadingBar
     api "com.dyhdyh.loadingbar2:loadingbar:${rootProject.ext.version_config.loadingBar}"
 
