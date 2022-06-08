@@ -29,6 +29,11 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
+    //kotlin
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.21"
+
+
     //androidx
     api "androidx.appcompat:appcompat:${rootProject.ext.version_config.appcompat}"
     api "androidx.recyclerview:recyclerview:${rootProject.ext.version_config.recyclerview}"
