@@ -1,2 +1,2 @@
-# basic code
+# basic code collection repo
 
