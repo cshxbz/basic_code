@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion rootProject.ext.version.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.version.minSdk
+        targetSdkVersion rootProject.ext.version.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.hxb.basic_framework.baselib'
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    //kotlin
+    api "org.jetbrains.kotlin:kotlin-stdlib:${rootProject.ext.version.kotlin}"
+
+    //androidx
+    api "androidx.core:core-ktx:${rootProject.ext.version.ktx_core}"
+    api "androidx.activity:activity-ktx:${rootProject.ext.version.activity_ktx}"
+    api "androidx.fragment:fragment-ktx:${rootProject.ext.version.fragment_ktx}"
+
+    api "androidx.appcompat:appcompat:${rootProject.ext.version.appcompat}"
+    api "androidx.recyclerview:recyclerview:${rootProject.ext.version.recyclerview}"
+    api "androidx.coordinatorlayout:coordinatorlayout:${rootProject.ext.version.coordinatorlayout}"
+    api "androidx.constraintlayout:constraintlayout:${rootProject.ext.version.constraintLayout}"
+
+    //gson
+    api "com.google.code.gson:gson:${rootProject.ext.version.gson}"
+
+    //eventBus
+    api "org.greenrobot:eventbus:${rootProject.ext.version.eventbus}"
+
+    //glide
+    api "com.github.bumptech.glide:glide:${rootProject.ext.version.glide}"
+
+    //retrofit
+    api "com.squareup.retrofit2:retrofit:${rootProject.ext.version.retrofit}"
+    api "com.squareup.retrofit2:converter-gson:${rootProject.ext.version.retrofit}"
+    api "com.squareup.retrofit2:converter-scalars:${rootProject.ext.version.retrofit}"
+
+    //okHttp
+    api "com.squareup.okhttp3:okhttp:${rootProject.ext.version.okhttp}"
+    api "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.version.okhttplogging}"
+
+    //loadingBar
+    api "com.dyhdyh.loadingbar2:loadingbar:${rootProject.ext.version.loadingBar}"
+
+
+
+
+}

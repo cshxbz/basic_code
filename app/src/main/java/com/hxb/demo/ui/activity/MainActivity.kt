@@ -1,9 +1,9 @@
-package com.hxb.basicframework.ui.activity
+package com.hxb.demo.ui.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.hxb.basicframework.databinding.ActivityMainBinding
+import com.hxb.demo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

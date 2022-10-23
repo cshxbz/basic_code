@@ -1,4 +1,4 @@
-package com.hxb.basicframework.ui.activity;
+package com.hxb.demo.ui.activity;
 
 import android.os.Bundle;
 
@@ -6,7 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.hxb.basicframework.databinding.ActivityStyleTestBinding;
+import com.hxb.demo.databinding.ActivityStyleTestBinding;
+
 
 public class StyleTestActivity extends AppCompatActivity {
 
