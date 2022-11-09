@@ -1,4 +1,4 @@
-package com.hxb.basic_framework.baselib.adapter;
+package com.hxb.baselib.adapter;
 
 
 import android.content.Context;

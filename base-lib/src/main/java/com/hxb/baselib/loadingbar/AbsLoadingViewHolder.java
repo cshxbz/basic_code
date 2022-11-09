@@ -1,4 +1,4 @@
-package com.hxb.basic_framework.baselib.loadingbar;
+package com.hxb.baselib.loadingbar;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.hxb.network'
+
+    compileSdkVersion rootProject.ext.version.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.version.minSdk
+        targetSdkVersion rootProject.ext.version.targetSdk
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(':base-lib')
+
+    //retrofit
+    api "com.squareup.retrofit2:retrofit:${rootProject.ext.version.retrofit}"
+    api "com.squareup.retrofit2:converter-gson:${rootProject.ext.version.retrofit}"
+    api "com.squareup.retrofit2:converter-scalars:${rootProject.ext.version.retrofit}"
+
+    //okHttp
+    api "com.squareup.okhttp3:okhttp:${rootProject.ext.version.okhttp}"
+    api "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.version.okhttplogging}"
+
+
+}

@@ -6,9 +6,6 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.version.minSdk
         targetSdkVersion rootProject.ext.version.targetSdk
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     viewBinding {
@@ -21,7 +18,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    namespace 'com.hxb.basic_framework.baselib'
+    namespace 'com.hxb.baselib'
 
 }
 
@@ -49,15 +46,6 @@ dependencies {
 
     //glide
     api "com.github.bumptech.glide:glide:${rootProject.ext.version.glide}"
-
-    //retrofit
-    api "com.squareup.retrofit2:retrofit:${rootProject.ext.version.retrofit}"
-    api "com.squareup.retrofit2:converter-gson:${rootProject.ext.version.retrofit}"
-    api "com.squareup.retrofit2:converter-scalars:${rootProject.ext.version.retrofit}"
-
-    //okHttp
-    api "com.squareup.okhttp3:okhttp:${rootProject.ext.version.okhttp}"
-    api "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.version.okhttplogging}"
 
     //loadingBar
     api "com.dyhdyh.loadingbar2:loadingbar:${rootProject.ext.version.loadingBar}"

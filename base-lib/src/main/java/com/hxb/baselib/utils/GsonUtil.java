@@ -1,4 +1,4 @@
-package com.hxb.basic_framework.baselib.utils;
+package com.hxb.baselib.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -1,4 +1,4 @@
-package com.hxb.basic_framework.baselib.dialog;
+package com.hxb.baselib.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
