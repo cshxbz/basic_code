@@ -9,31 +9,41 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 open class RetrofitApiCreator {
 
-    protected lateinit var okhttpClient: OkHttpClient
+    private var retrofit: Retrofit? = null
 
-    fun build(baseUrl: String) {
-        val build = Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .client(buildOkhttpClient())
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+    fun <T> create(baseUrl: String, service: Class<T>): T {
+        if (retrofit == null) {
+            retrofit = Retrofit.Builder()
+                    .baseUrl(baseUrl)
+                    .client(buildOkHttpClient())
+                    .addConverterFactory(ScalarsConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+        }
+
+        return retrofit!!.create(service)
     }
 
-    open fun buildOkhttpClient(): OkHttpClient {
-        okhttpClient = OkHttpClient.Builder()
-                .addInterceptor(buildLoggingInterceptor())
-                .build()
-        return okhttpClient
+
+    private fun buildOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder().also {
+
+            it.addInterceptor(buildLoggingInterceptor())
+            customizeOkHttpClient(it)
+
+        }.build()
+
     }
 
+    /**
+     *  子类可重写这个方法来配置[OkHttpClient]
+     */
+    open fun customizeOkHttpClient(builder: OkHttpClient.Builder) {}
 
     private fun buildLoggingInterceptor(): HttpLoggingInterceptor {
-        val interceptor = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
-            override fun log(message: String) {
-                LogUtil.i(msg = message)
-            }
-        })
+        val interceptor = HttpLoggingInterceptor { message ->
+            LogUtil.i(msg = message)
+        }
 
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         return interceptor

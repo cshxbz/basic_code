@@ -32,6 +32,7 @@ dependencies {
     api "androidx.core:core-ktx:${rootProject.ext.version.ktx_core}"
     api "androidx.activity:activity-ktx:${rootProject.ext.version.activity_ktx}"
     api "androidx.fragment:fragment-ktx:${rootProject.ext.version.fragment_ktx}"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:${rootProject.ext.version.lifecycle_ktx}"
 
     api "androidx.appcompat:appcompat:${rootProject.ext.version.appcompat}"
     api "androidx.recyclerview:recyclerview:${rootProject.ext.version.recyclerview}"
