@@ -2,7 +2,7 @@ package com.hxb.baselib.loadingbar;
 
 import android.content.Context;
 
-import com.hxb.basic_framework.baselib.R;
+import com.hxb.baselib.R;
 
 public class CommonLoadingViewHolder extends AbsLoadingViewHolder {
 

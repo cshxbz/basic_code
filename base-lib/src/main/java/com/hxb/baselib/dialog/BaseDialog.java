@@ -5,7 +5,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.hxb.basic_framework.baselib.R;
+import com.hxb.baselib.R;
 
 public class BaseDialog extends Dialog {
 

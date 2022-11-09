@@ -10,7 +10,7 @@ ext {
              */
             "minSdk"            : 19,
             "targetSdk"         : 31,
-            "compileSdk"        : 31,
+            "compileSdk"        : 33,
 
             /**
              *  kotlin

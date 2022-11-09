@@ -5,7 +5,7 @@ android {
     compileSdkVersion rootProject.ext.version.compileSdk
 
     defaultConfig {
-        applicationId "com.hxb.basicframework"
+        applicationId "com.hxb.basic_code.demo"
         minSdkVersion rootProject.ext.version.minSdk
         targetSdkVersion rootProject.ext.version.targetSdk
         versionCode 1
