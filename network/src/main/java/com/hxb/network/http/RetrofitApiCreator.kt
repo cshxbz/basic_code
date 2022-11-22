@@ -26,13 +26,10 @@ open class RetrofitApiCreator {
 
 
     private fun buildOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder().also {
-
-            it.addInterceptor(buildLoggingInterceptor())
-            customizeOkHttpClient(it)
-
-        }.build()
-
+        val builder = OkHttpClient.Builder()
+        builder.addInterceptor(buildLoggingInterceptor())
+        customizeOkHttpClient(builder)
+        return builder.build()
     }
 
     /**
