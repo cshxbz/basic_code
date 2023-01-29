@@ -3,8 +3,7 @@ package com.hxb.network.http
 /**
  * 这个密封类表示 http接口的调用结果
  * [HttpApiResult.Success] 表示调用成功
- *  [HttpApiResult.Failure] 表示失败
- *  [HttpApiResult.Failure] 还有一系列子类，子类是对错误情况的具体细分
+ *  [HttpApiResult.Failure] 表示失败,还有一系列子类,子类是对错误情况的具体细分
  */
 sealed class HttpApiResult<out T> {
 

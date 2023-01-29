@@ -10,5 +10,9 @@ class CommonApiResp<T> : IApiResp<T> {
         return code != null && code == 0
     }
 
+    override fun toString(): String {
+        return "CommonApiResp(data=$data, code=$code, message=$message)"
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package com.hxb.demo.http
 
+import com.hxb.baselib.utils.LogUtil
 import com.hxb.demo.BuildConfig
 import com.hxb.network.http.RetrofitApiCreator
 import okhttp3.Interceptor
@@ -19,7 +20,7 @@ object CommonApiCreator : RetrofitApiCreator() {
         builder.addInterceptor(object :Interceptor{
             override fun intercept(chain: Interceptor.Chain): Response {
                 val request = chain.request()
-
+                LogUtil.i(msg = "perform custom okhttp interceptor...")
                 return chain.proceed(request)
             }
 

@@ -1,5 +1,6 @@
 package com.hxb.network.http
 
+import android.util.Log
 import com.hxb.baselib.utils.LogUtil
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

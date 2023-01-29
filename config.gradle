@@ -52,7 +52,7 @@ ext {
 
     //接口url
     api_base_url = [
-            "dev": "\"http://www.baidu.com\"",
+            "dev": "\"https://mock.apifox.cn/\"",
             "prd": "\"https://www.jianshu.com\""
 
     ]
