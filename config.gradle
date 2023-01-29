@@ -21,11 +21,11 @@ ext {
              * androidx
              */
             "ktx_core"          : '1.9.0',
-            "activity_ktx"      : '1.6.0',
-            "fragment_ktx"      : '1.5.3',
-            "lifecycle_ktx"      : '2.6.0-alpha03',
+            "activity_ktx"      : '1.6.1',
+            "fragment_ktx"      : '1.5.5',
+            "lifecycle_ktx"      : '2.6.0-alpha05',
 
-            "appcompat"         : '1.5.1',
+            "appcompat"         : '1.6.0',
             "constraintLayout"  : '2.1.4',
             "coordinatorlayout" : '1.2.0',
             "recyclerview"      : "1.2.1",
