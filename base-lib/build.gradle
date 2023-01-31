@@ -42,6 +42,9 @@ dependencies {
     api "androidx.coordinatorlayout:coordinatorlayout:${rootProject.ext.version.coordinatorlayout}"
     api "androidx.constraintlayout:constraintlayout:${rootProject.ext.version.constraintLayout}"
 
+    //
+    api 'com.blankj:utilcodex:1.31.1'
+
     //gson
     api "com.google.code.gson:gson:${rootProject.ext.version.gson}"
 

@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.gson.JsonParseException
 import com.google.gson.JsonSyntaxException
 import com.hxb.baselib.utils.LogUtil
 import com.hxb.demo.databinding.ActivityMainBinding
 import com.hxb.demo.http.CommonApiCreator
+import com.hxb.network.http.HttpApiResult
+import com.hxb.network.http.transHttpApiResp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -38,30 +41,28 @@ class MainActivity : AppCompatActivity() {
     private fun callApi() {
         lifecycleScope.launch(Dispatchers.Main) {
 
-            try {
+            val apiResult = transHttpApiResp {
+                CommonApiCreator.create().getUserInfo()
+            }
 
-                val userInfoResp = CommonApiCreator.create().getUserInfo()
-                LogUtil.i(msg = "userInfoResp: $userInfoResp")
-
-
-            } catch (e: Exception) {
-                e.printStackTrace()
-                when (e) {
-                    is HttpException -> {//http响应错误
-
-                    }
-                    is JsonSyntaxException -> {//json数据解析错误
-
-                    }
-                    else -> {//未知错误
-
-
-                    }
+            when (apiResult) {
+                is HttpApiResult.Success -> {
+                    val data = apiResult.data
+                    LogUtil.i(msg = "success -- data: $data")
+                }
+                is HttpApiResult.Failure -> {
+                    LogUtil.i(msg = "failure -- message: ${apiResult.message}")
                 }
             }
 
 
+
+
         }
+
     }
+
+
+
 
 }
