@@ -4,49 +4,12 @@ ext {
 
     version = [
             //rootProject.ext.version.
-
             /*
              * android sdk
              */
             "minSdk"            : 19,
             "targetSdk"         : 31,
             "compileSdk"        : 33,
-
-            /**
-             *  kotlin
-             */
-            "kotlin"            : "1.7.20",
-
-            /**
-             * androidx
-             */
-            "ktx_core"          : '1.9.0',
-            "activity_ktx"      : '1.6.1',
-            "fragment_ktx"      : '1.5.5',
-            "lifecycle_ktx"      : '2.6.0-alpha05',
-
-            "appcompat"         : '1.6.0',
-            "constraintLayout"  : '2.1.4',
-            "coordinatorlayout" : '1.2.0',
-            "recyclerview"      : "1.2.1",
-
-            //okHttp retrofit
-            "retrofit"          : '2.9.0',
-            "okhttp"            : '4.10.0',
-            "okhttplogging"     : '4.10.0',
-
-            "gson"              : '2.8.9',
-            "eventbus"          : '3.3.1',
-
-            //glide
-            "glide"             : '4.11.0',
-
-            /**
-             * other ui lib
-             */
-            "smartRefreshLayout": "2.0.5",
-            "loadingBar"        : "2.0.1"
-
     ]
 
 
