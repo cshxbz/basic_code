@@ -13,7 +13,7 @@ sealed class HttpApiResult<out T> {
         /**
          * 这个错误类型表示：http请求成功，但是接口响应值返回的code表示错误
          */
-        class ApiRespFailure(message: String?, val errorCode: Int?) : Failure(message)
+        class ApiAbnormalFailure(message: String?, val errorCode: Int?) : Failure(message)
         /**
          * 这个错误类型表示：当前没有连接网络
          */

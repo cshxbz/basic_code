@@ -4,17 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.google.gson.JsonParseException
-import com.google.gson.JsonSyntaxException
-import com.hxb.baselib.utils.LogUtil
 import com.hxb.demo.databinding.ActivityMainBinding
-import com.hxb.demo.http.CommonApiCreator
-import com.hxb.network.http.HttpApiResult
-import com.hxb.network.http.transHttpApiResp
+import com.hxb.demo.http.ApiCreator
+import com.hxb.network.http.suspendRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.HttpException
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,22 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun callApi() {
         lifecycleScope.launch(Dispatchers.Main) {
-
-            val apiResult = transHttpApiResp {
-                CommonApiCreator.create().getUserInfo()
-            }
-
-            when (apiResult) {
-                is HttpApiResult.Success -> {
-                    val data = apiResult.data
-                    LogUtil.i(msg = "success -- data: $data")
-                }
-                is HttpApiResult.Failure -> {
-                    LogUtil.i(msg = "failure -- message: ${apiResult.message}")
-                }
-            }
-
-
+            val result = ApiCreator.create().getUserInfo().suspendRequest()
 
 
         }

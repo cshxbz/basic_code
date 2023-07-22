@@ -5,11 +5,10 @@ plugins {
 
 android {
     namespace 'com.hxb.network'
-
-    compileSdkVersion rootProject.ext.version.compileSdk
+    compileSdkVersion rootProject.ext.compileSdk
     defaultConfig {
-        minSdkVersion rootProject.ext.version.minSdk
-        targetSdkVersion rootProject.ext.version.targetSdk
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
     }
 
     buildTypes {
