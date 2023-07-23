@@ -1,7 +1,6 @@
 package com.hxb.network.http
 
-import android.util.Log
-import com.hxb.baselib.utils.LogUtil
+import com.hxb.baselib.log.logI
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -40,7 +39,7 @@ open class RetrofitApiCreator {
 
     private fun buildLoggingInterceptor(): HttpLoggingInterceptor {
         val interceptor = HttpLoggingInterceptor { message ->
-            LogUtil.i(msg = message)
+            logI(tag = "okhttp_log", content = message)
         }
 
         interceptor.level = HttpLoggingInterceptor.Level.BODY
