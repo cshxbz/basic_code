@@ -27,6 +27,14 @@ class IPCDemoActivity : AppCompatActivity() {
             startActivity(Intent(this, BookManagerDemoActivity::class.java))
         }
 
+        binding.btnMultiBindService.setOnClickListener {
+            startActivity(Intent(this, MultiBindServiceDemoActivity::class.java))
+        }
+
+        binding.btnMultiProcessAccessProvider.setOnClickListener {
+            startActivity(Intent(this, MultiProcessAccessProviderActivity::class.java))
+        }
+
     }
 
 }

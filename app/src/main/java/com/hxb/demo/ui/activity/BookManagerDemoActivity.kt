@@ -70,12 +70,15 @@ class BookManagerDemoActivity : AppCompatActivity() {
 
     private val serviceConn = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            logI(TAG, "onServiceConnected -- name: $name , binder: $service")
+            logI(
+                TAG,
+                "onServiceConnected -- thread: ${Thread.currentThread().name} ,  name: $name , binder: $service"
+            )
             mService = IBookManager.Stub.asInterface(service)
         }
 
         override fun onServiceDisconnected(name: ComponentName?) {
-            logI(TAG, "onServiceDisconnected -- name: $name")
+            logI(TAG, "onServiceDisconnected -- thread: ${Thread.currentThread().name} , name: $name")
         }
 
 

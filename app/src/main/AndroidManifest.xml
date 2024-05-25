@@ -3,12 +3,17 @@
     package="com.hxb.demo"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:name=".MyApplication"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -31,10 +36,33 @@
         <activity android:name=".ui.activity.BookManagerDemoActivity"
             android:launchMode="singleTask"
             />
+        <activity android:name=".ui.activity.MultiBindServiceDemoActivity" />
+        <activity android:name=".ui.activity.MultiProcessAccessProviderActivity" />
 
         <service android:name=".service.BookManagerService"
-            android:process=":book_manager"
+            android:process=":book"
             />
+        <service android:name=".service.CustomService"
+            android:process=":custom"
+            />
+
+
+        <service android:name=".service.accessprovider.AccessProviderService01"
+            android:process=":ap01"
+            />
+        <service android:name=".service.accessprovider.AccessProviderService02"
+            android:process=":ap02"
+            />
+        <service android:name=".service.accessprovider.AccessProviderService03"
+            android:process=":ap03"
+            />
+
+        <provider
+            android:authorities="com.hxb.userInfo.provider"
+            android:name=".provider.UserInfoProvider"
+            android:process=":provider"
+            android:multiprocess="false"
+            android:exported="false" />
 
     </application>
 

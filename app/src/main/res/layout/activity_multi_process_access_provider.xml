@@ -9,31 +9,26 @@
         android:orientation="vertical"
         >
 
-
         <Button
-            android:id="@+id/btn_book_manager_demo"
+            android:id="@+id/btn_start_access_provider_service_01"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="book_manager_demo"
+            android:text="start_access_provider_service_01"
             />
-
-
         <Button
-            android:id="@+id/btn_multi_bind_service"
+            android:id="@+id/btn_start_access_provider_service_02"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="multi_bind_service"
+            android:text="start_access_provider_service_02"
             />
 
         <Button
-            android:id="@+id/btn_multi_process_access_provider"
+            android:id="@+id/btn_start_access_provider_service_03"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="multi_process_access_provider"
+            android:text="start_access_provider_service_03"
             />
-
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
