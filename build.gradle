@@ -8,8 +8,8 @@ buildscript {
     ext.compileSdk = 33
 
     repositories {
-//        google()
-//        mavenCentral()
+        google()
+        mavenCentral()
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
     }
@@ -23,8 +23,8 @@ buildscript {
 
 allprojects {
     repositories {
-//        google()
-//        mavenCentral()
+        google()
+        mavenCentral()
         maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
     }

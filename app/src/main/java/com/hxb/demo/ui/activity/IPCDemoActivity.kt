@@ -2,17 +2,19 @@ package com.hxb.demo.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import com.hxb.demo.databinding.ActivityIpcDemoBinding
 import com.hxb.demo.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class IPCDemoActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityIpcDemoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(LayoutInflater.from(this)).also {
+        binding = ActivityIpcDemoBinding.inflate(LayoutInflater.from(this)).also {
             setContentView(it.root)
         }
 
@@ -21,14 +23,10 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun initViewsListener() {
-        binding.btnGotoIpcTestPage.setOnClickListener {
-            startActivity(Intent(this, IPCDemoActivity::class.java))
+        binding.btnBookManagerDemo.setOnClickListener {
+            startActivity(Intent(this, BookManagerDemoActivity::class.java))
         }
 
     }
-
-
-
-
 
 }

@@ -25,6 +25,17 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.activity.IPCDemoActivity"
+            android:launchMode="singleTask"
+            />
+        <activity android:name=".ui.activity.BookManagerDemoActivity"
+            android:launchMode="singleTask"
+            />
+
+        <service android:name=".service.BookManagerService"
+            android:process=":book_manager"
+            />
+
     </application>
 
 </manifest>

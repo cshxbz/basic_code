@@ -12,8 +12,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdk
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        aidl true
+        viewBinding true
     }
 
     buildTypes {
